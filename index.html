@@ -128,7 +128,7 @@
       padding: 0 1rem;
     }
 
-    .breakdown h3 {
+    .breakdown h3, .log-section h3, .dice-section h3 {
       color: var(--gold);
       margin-bottom: 1rem;
       font-size: 1.1rem;
@@ -153,16 +153,8 @@
 
     .log-section {
       max-width: 700px;
-      margin: 2rem auto 4rem;
+      margin: 2rem auto;
       padding: 0 1rem;
-    }
-
-    .log-section h3 {
-      color: var(--gold);
-      margin-bottom: 1rem;
-      font-size: 1.1rem;
-      text-align: center;
-      letter-spacing: 1px;
     }
 
     table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
@@ -185,6 +177,97 @@
     tr:hover td { background: #161616; }
     .person-phaedra { color: var(--pink); font-weight: bold; }
     .person-mike { color: var(--purple); font-weight: bold; }
+
+    /* DICE SECTION */
+    .dice-section {
+      max-width: 700px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .dice-lock {
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid #333;
+    }
+
+    .dice-lock p {
+      color: #888;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .pw-input {
+      background: #111;
+      border: 1px solid #444;
+      color: var(--text);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      margin-right: 0.5rem;
+      width: 180px;
+    }
+
+    .pw-input:focus { outline: none; border-color: var(--gold); }
+
+    .btn {
+      background: var(--gold);
+      color: #000;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: opacity 0.2s;
+    }
+
+    .btn:hover { opacity: 0.8; }
+
+    .pw-error {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .dice-roller {
+      display: none;
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid #333;
+    }
+
+    .dice-roller p {
+      color: #888;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .dice-display {
+      font-size: 6rem;
+      line-height: 1;
+      margin: 1rem 0;
+      transition: transform 0.1s;
+    }
+
+    .dice-result {
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: bold;
+      margin: 0.5rem 0 1.5rem;
+      min-height: 2rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .spinning { animation: spin 0.5s ease-out; }
 
     footer {
       text-align: center;
@@ -297,7 +380,7 @@
           <td>2026</td>
           <td class="person-mike">Mike</td>
           <td>Prank (custom)</td>
-          <td>SL — typed sl into the Linux terminal like a goose</td>
+          <td>SL — typed sl into the Linux terminal like a menace</td>
           <td>$10</td>
         </tr>
         <tr>
@@ -312,7 +395,12 @@
     </table>
   </div>
 
-  <footer>updated manually · disputed entries taken very seriously</footer>
+  <!-- DICE SECTION -->
+  <div class="dice-section">
+    <h3>— D10 DISPUTE RESOLVER 🎲 —</h3>
 
-</body>
-</html>
+    <div class="dice-lock" id="diceLock">
+      <p>Collaborators only. Enter the password to roll.</p>
+      <input type="password" class="pw-input" id="pwInput" placeholder="password" />
+      <button class="btn" onclick="checkPassword()">Unlock</button>
+      <p class="pw-error" id="pwError">Wrong
