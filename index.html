@@ -13,6 +13,10 @@
       --dark: #0d0d0d;
       --darker: #111111;
       --text: #f0f0f0;
+      --arcane: #7b4fd4;
+      --arcane-glow: #a78bfa;
+      --ember: #e85d04;
+      --ember-glow: #f48c06;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -178,6 +182,7 @@
     .person-phaedra { color: var(--pink); font-weight: bold; }
     .person-mike { color: var(--purple); font-weight: bold; }
 
+    /* DICE SECTION */
     .dice-section {
       max-width: 700px;
       margin: 2rem auto 4rem;
@@ -185,87 +190,165 @@
       text-align: center;
     }
 
-    .dice-lock {
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 2rem;
-      border: 1px solid #333;
+    .dice-columns {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .dice-lock p {
+    .dice-box {
+      flex: 1;
+      min-width: 280px;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* D10 - Arcane */
+    .dice-box-d10 {
+      background: linear-gradient(135deg, #0d0520, #1a0a35);
+      border: 2px solid var(--arcane);
+      box-shadow: 0 0 15px rgba(123, 79, 212, 0.2);
+    }
+
+    .dice-box-d10 h4 {
+      color: var(--arcane-glow);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 10px rgba(167, 139, 250, 0.6);
+    }
+
+    .dice-box-d10 .dice-subtitle {
+      color: #6a5a8a;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    /* D20 - Ember */
+    .dice-box-d20 {
+      background: linear-gradient(135deg, #1a0500, #2a0e00);
+      border: 2px solid var(--ember);
+      box-shadow: 0 0 15px rgba(232, 93, 4, 0.2);
+    }
+
+    .dice-box-d20 h4 {
+      color: var(--ember-glow);
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 0 10px rgba(244, 140, 6, 0.6);
+    }
+
+    .dice-box-d20 .dice-subtitle {
+      color: #8a5a30;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .dice-lock-inner p {
       color: #888;
       margin-bottom: 1rem;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
 
     .pw-input {
       background: #111;
       border: 1px solid #444;
       color: var(--text);
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 0.8rem;
       border-radius: 8px;
-      font-size: 1rem;
-      margin-right: 0.5rem;
-      width: 180px;
+      font-size: 0.9rem;
+      margin-bottom: 0.5rem;
+      width: 100%;
     }
 
-    .pw-input:focus { outline: none; border-color: var(--gold); }
+    .pw-input:focus { outline: none; }
+    .pw-input-d10:focus { border-color: var(--arcane); }
+    .pw-input-d20:focus { border-color: var(--ember); }
 
-    .btn {
-      background: var(--gold);
-      color: #000;
+    .btn-d10 {
+      background: linear-gradient(135deg, var(--arcane), var(--arcane-glow));
+      color: #fff;
       border: none;
       padding: 0.5rem 1.2rem;
       border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       transition: opacity 0.2s;
+      width: 100%;
+      margin-top: 0.3rem;
+      text-shadow: 0 0 8px rgba(167,139,250,0.8);
     }
 
-    .btn:hover { opacity: 0.8; }
+    .btn-d20 {
+      background: linear-gradient(135deg, var(--ember), var(--ember-glow));
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: opacity 0.2s;
+      width: 100%;
+      margin-top: 0.3rem;
+      text-shadow: 0 0 8px rgba(244,140,6,0.8);
+    }
+
+    .btn-d10:hover { opacity: 0.85; }
+    .btn-d20:hover { opacity: 0.85; }
 
     .pw-error {
       color: #e74c3c;
-      font-size: 0.85rem;
-      margin-top: 0.5rem;
+      font-size: 0.8rem;
+      margin-top: 0.4rem;
       display: none;
     }
 
-    .dice-roller {
-      display: none;
-      background: #1a1a1a;
-      border-radius: 16px;
-      padding: 2rem;
-      border: 1px solid #333;
-    }
-
-    .dice-roller p {
-      color: #888;
-      margin-bottom: 1.5rem;
-      font-size: 0.9rem;
-    }
+    .dice-roller-inner { display: none; }
 
     .dice-display {
-      font-size: 6rem;
+      font-size: 5rem;
       line-height: 1;
-      margin: 1rem 0;
+      margin: 0.8rem 0;
     }
 
     .dice-result {
-      font-size: 1.5rem;
-      color: var(--gold);
+      font-size: 1.2rem;
       font-weight: bold;
-      margin: 0.5rem 0 1.5rem;
-      min-height: 2rem;
+      margin: 0.5rem 0 1rem;
+      min-height: 1.8rem;
+    }
+
+    .dice-result-d10 { color: var(--arcane-glow); text-shadow: 0 0 10px rgba(167,139,250,0.6); }
+    .dice-result-d20 { color: var(--ember-glow); text-shadow: 0 0 10px rgba(244,140,6,0.6); }
+
+    .dice-note {
+      font-size: 0.75rem;
+      color: #555;
+      margin-top: 0.5rem;
     }
 
     @keyframes spin {
-      0% { transform: rotate(0deg) scale(1.2); }
+      0% { transform: rotate(0deg) scale(1.3); }
       100% { transform: rotate(360deg) scale(1); }
     }
 
-    .spinning { animation: spin 0.5s ease-out; }
+    @keyframes arcane-pulse {
+      0%, 100% { text-shadow: 0 0 10px rgba(167,139,250,0.4); }
+      50% { text-shadow: 0 0 30px rgba(167,139,250,1); }
+    }
+
+    @keyframes ember-pulse {
+      0%, 100% { text-shadow: 0 0 10px rgba(244,140,6,0.4); }
+      50% { text-shadow: 0 0 30px rgba(244,140,6,1); }
+    }
+
+    .spinning-arcane { animation: spin 0.5s ease-out, arcane-pulse 0.5s ease-out; }
+    .spinning-ember { animation: spin 0.5s ease-out, ember-pulse 0.5s ease-out; }
 
     footer {
       text-align: center;
@@ -304,32 +387,32 @@
   <div class="breakdown">
     <h3>— CATEGORY BREAKDOWN —</h3>
     <div class="category-row">
-      <span class="category-name">Joke ($5)</span>
+      <span class="category-name">Joke</span>
       <span class="cat-phaedra">P: 0</span>
       <span class="cat-mike">M: 0</span>
     </div>
     <div class="category-row">
-      <span class="category-name">Prank ($5)</span>
+      <span class="category-name">Prank</span>
       <span class="cat-phaedra">P: 0</span>
       <span class="cat-mike">M: 2</span>
     </div>
     <div class="category-row">
-      <span class="category-name">Legendary Story ($10)</span>
+      <span class="category-name">Legendary Story</span>
       <span class="cat-phaedra">P: 0</span>
       <span class="cat-mike">M: 1</span>
     </div>
     <div class="category-row">
-      <span class="category-name">Roast ($8)</span>
+      <span class="category-name">Roast</span>
       <span class="cat-phaedra">P: 0</span>
       <span class="cat-mike">M: 0</span>
     </div>
     <div class="category-row">
-      <span class="category-name">Story ($7)</span>
+      <span class="category-name">Story</span>
       <span class="cat-phaedra">P: 1</span>
       <span class="cat-mike">M: 0</span>
     </div>
     <div class="category-row">
-      <span class="category-name">Meme/Reel ($3)</span>
+      <span class="category-name">Meme/Reel</span>
       <span class="cat-phaedra">P: 1</span>
       <span class="cat-mike">M: 0</span>
     </div>
@@ -378,7 +461,7 @@
           <td>2026</td>
           <td class="person-mike">Mike</td>
           <td>Prank (custom)</td>
-          <td>SL — typed sl into the Linux terminal like a menace</td>
+          <td>SL — typed sl into the Linux terminal like a goose</td>
           <td>$10</td>
         </tr>
         <tr>
@@ -393,64 +476,118 @@
     </table>
   </div>
 
+  <!-- DICE SECTION -->
   <div class="dice-section">
-    <h3>— D10 DISPUTE RESOLVER 🎲 —</h3>
+    <h3>— ROLL THE BONES 🎲 —</h3>
+    <div class="dice-columns">
 
-    <div class="dice-lock" id="diceLock">
-      <p>Collaborators only. Enter the password to roll.</p>
-      <input type="password" class="pw-input" id="pwInput" placeholder="password" />
-      <button class="btn" id="unlockBtn">Unlock</button>
-      <p class="pw-error" id="pwError">Wrong password. No dice for you. 🎲</p>
-    </div>
+      <!-- D10 -->
+      <div class="dice-box dice-box-d10">
+        <h4>🔮 THE DECIDER</h4>
+        <div class="dice-subtitle">D10 · Standard Chaos</div>
+        <div class="dice-lock-inner" id="lockD10">
+          <p>Collaborators only.</p>
+          <input type="password" class="pw-input pw-input-d10" id="pwD10" placeholder="password" />
+          <button class="btn-d10" id="unlockD10">Unlock</button>
+          <p class="pw-error" id="errD10">Wrong password 🔮</p>
+        </div>
+        <div class="dice-roller-inner" id="rollerD10">
+          <div class="dice-display" id="displayD10">🔮</div>
+          <div class="dice-result dice-result-d10" id="resultD10"></div>
+          <button class="btn-d10" id="rollD10btn">Roll D10</button>
+          <p class="dice-note">Both parties must share the result.</p>
+        </div>
+      </div>
 
-    <div class="dice-roller" id="diceRoller">
-      <p>Roll to settle an unscored entry. Both parties must witness the roll.</p>
-      <div class="dice-display" id="diceDisplay">🎲</div>
-      <div class="dice-result" id="diceResult"></div>
-      <button class="btn" id="rollBtn">Roll D10</button>
+      <!-- D20 -->
+      <div class="dice-box dice-box-d20">
+        <h4>🔥 THE RECKONING</h4>
+        <div class="dice-subtitle">D20 · Legendary Chaos</div>
+        <div class="dice-lock-inner" id="lockD20">
+          <p>Collaborators only.</p>
+          <input type="password" class="pw-input pw-input-d20" id="pwD20" placeholder="password" />
+          <button class="btn-d20" id="unlockD20">Unlock</button>
+          <p class="pw-error" id="errD20">Wrong password 🔥</p>
+        </div>
+        <div class="dice-roller-inner" id="rollerD20">
+          <div class="dice-display" id="displayD20">🔥</div>
+          <div class="dice-result dice-result-d20" id="resultD20"></div>
+          <button class="btn-d20" id="rollD20btn">Roll D20</button>
+          <p class="dice-note">Both parties must share the result.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 
   <footer>updated manually · disputed entries taken very seriously</footer>
 
   <script>
-    const PASSWORD = "plottwist2026";
+    const PW_D10 = "plottwist2026";
+    const PW_D20 = "plottwist2026";
 
     document.addEventListener("DOMContentLoaded", function() {
-      document.getElementById("unlockBtn").addEventListener("click", checkPassword);
-      document.getElementById("rollBtn").addEventListener("click", rollDice);
-      document.getElementById("pwInput").addEventListener("keypress", function(e) {
-        if (e.key === "Enter") checkPassword();
+
+      // D10 unlock
+      document.getElementById("unlockD10").addEventListener("click", function() {
+        if (document.getElementById("pwD10").value === PW_D10) {
+          document.getElementById("lockD10").style.display = "none";
+          document.getElementById("rollerD10").style.display = "block";
+        } else {
+          document.getElementById("errD10").style.display = "block";
+        }
       });
+
+      document.getElementById("pwD10").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") document.getElementById("unlockD10").click();
+      });
+
+      // D20 unlock
+      document.getElementById("unlockD20").addEventListener("click", function() {
+        if (document.getElementById("pwD20").value === PW_D20) {
+          document.getElementById("lockD20").style.display = "none";
+          document.getElementById("rollerD20").style.display = "block";
+        } else {
+          document.getElementById("errD20").style.display = "block";
+        }
+      });
+
+      document.getElementById("pwD20").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") document.getElementById("unlockD20").click();
+      });
+
+      // D10 roll
+      document.getElementById("rollD10btn").addEventListener("click", function() {
+        rollDice("displayD10", "resultD10", 10, "spinning-arcane", "🔮");
+      });
+
+      // D20 roll
+      document.getElementById("rollD20btn").addEventListener("click", function() {
+        rollDice("displayD20", "resultD20", 20, "spinning-ember", "🔥");
+      });
+
     });
 
-    function checkPassword() {
-      const input = document.getElementById("pwInput").value;
-      const error = document.getElementById("pwError");
-      if (input === PASSWORD) {
-        document.getElementById("diceLock").style.display = "none";
-        document.getElementById("diceRoller").style.display = "block";
-      } else {
-        error.style.display = "block";
-      }
-    }
-
-    function rollDice() {
-      const display = document.getElementById("diceDisplay");
-      const result = document.getElementById("diceResult");
+    function rollDice(displayId, resultId, sides, spinClass, emoji) {
+      const display = document.getElementById(displayId);
+      const result = document.getElementById(resultId);
       let rolls = 0;
       result.textContent = "";
-      display.classList.remove("spinning");
+      display.classList.remove("spinning-arcane", "spinning-ember");
       void display.offsetWidth;
-      display.classList.add("spinning");
+      display.classList.add(spinClass);
+
+      const symbols = sides === 10
+        ? ["🔮","✨","💫","🌀","⚡","🌙","💎","🔯","🌟","🪄"]
+        : ["🔥","💥","⚡","🌋","☄️","🔥","💫","🌪️","⚔️","🐉"];
 
       const interval = setInterval(() => {
-        display.textContent = ["🎲","⚄","⚅","⚃","⚂","⚁","⚀"][Math.floor(Math.random() * 7)];
+        display.textContent = symbols[Math.floor(Math.random() * symbols.length)];
         rolls++;
-        if (rolls >= 15) {
+        if (rolls >= 20) {
           clearInterval(interval);
-          const final = Math.floor(Math.random() * 10) + 1;
-          display.textContent = "🎲";
+          const final = Math.floor(Math.random() * sides) + 1;
+          display.textContent = emoji;
           result.textContent = `You rolled: ${final} — worth $${final}`;
         }
       }, 80);
