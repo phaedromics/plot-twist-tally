@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plot Twist Tally 🏆</title>
+  <style>
+    :root {
+      --pink: #d4638a;
+      --orange: #ff9a3c;
+      --purple: #9b59b6;
+      --gold: #ffd700;
+      --dark: #0d0d0d;
+      --darker: #111111;
+      --text: #f0f0f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: var(--dark);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      text-align: center;
+      padding: 3rem 1rem 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      color: var(--gold);
+      text-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      letter-spacing: 2px;
+    }
+
+    header p {
+      color: #888;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* LEADER BANNER */
+    .leader-banner {
+      max-width: 700px;
+      margin: 2rem auto 1rem;
+      padding: 1rem 2rem;
+      border-radius: 12px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: bold;
+      letter-spacing: 1px;
+      animation: pulse 2s infinite;
+    }
+
+    .leader-phaedra {
+      background: linear-gradient(135deg, var(--pink), var(--orange));
+      color: #fff;
+      border: 2px solid var(--gold);
+    }
+
+    .leader-mike {
+      background: linear-gradient(135deg, #6c3483, var(--purple));
+      color: #fff;
+      border: 2px solid var(--gold);
+    }
+
+    .leader-tie {
+      background: linear-gradient(135deg, #333, #444);
+      color: var(--gold);
+      border: 2px solid var(--gold);
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+      50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
+    }
+
+    /* SCORECARDS */
+    .scores {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .scorecard {
+      flex: 1;
+      min-width: 200px;
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .scorecard-phaedra {
+      background: linear-gradient(135deg, #2a0a15, #1a0a10);
+      border: 2px solid var(--pink);
+    }
+
+    .scorecard-mike {
+      background: linear-gradient(135deg, #1a0a2a, #0f0718);
+      border: 2px solid var(--purple);
+    }
+
+    .scorecard h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .scorecard-phaedra h2 { color: var(--pink); }
+    .scorecard-mike h2 { color: var(--purple); }
+
+    .score-value {
+      font-size: 4rem;
+      font-weight: bold;
+      line-height: 1;
+      margin: 0.5rem 0;
+    }
+
+    .scorecard-phaedra .score-value { color: var(--pink); }
+    .scorecard-mike .score-value { color: var(--purple); }
+
+    .score-label {
+      color: #888;
+      font-size: 0.85rem;
+    }
+
+    .score-entries {
+      margin-top: 1rem;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    /* CATEGORY BREAKDOWN */
+    .breakdown {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .breakdown h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    .category-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.6rem 1rem;
+      margin-bottom: 0.4rem;
+      background: #1a1a1a;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .category-name { color: #ccc; }
+    .cat-phaedra { color: var(--pink); font-weight: bold; }
+    .cat-mike { color: var(--purple); font-weight: bold; }
+
+    /* LOG TABLE */
+    .log-section {
+      max-width: 700px;
+      margin: 2rem auto 4rem;
+      padding: 0 1rem;
+    }
+
+    .log-section h3 {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th {
+      background: #1a1a1a;
+      color: #888;
+      padding: 0.6rem 0.8rem;
+      text-align: left;
+      font-weight: normal;
+      letter-spacing: 0.5px;
+    }
+
+    td {
+      padding: 0.6rem 0.8rem;
+      border-bottom: 1px solid #1a1a1a;
+      color: #ccc;
+    }
+
+    tr:hover td { background: #161616; }
+
+    .person-phaedra { color: var(--pink); font-weight: bold; }
+    .person-mike { color: var(--purple); font-weight: bold; }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #333;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏆 PLOT TWIST TALLY 🏆</h1>
+    <p>The official record of chaos. Updated manually. Contested frequently.</p>
+  </header>
+
+  <!-- LEADER BANNER -->
+  <div class="leader-banner leader-mike">
+    👑 CURRENT LEADER: MIKE — winning by $6.50
+  </div>
+
+  <!-- SCORECARDS -->
+  <div class="scores">
+    <div class="scorecard scorecard-phaedra">
+      <h2>Phaedra</h2>
+      <div class="score-value">$3.50</div>
+      <div class="score-label">total points</div>
+      <div class="score-entries">1 entry</div>
+    </div>
+    <div class="scorecard scorecard-mike">
+      <h2>Mike</h2>
+      <div class="score-value">$10</div>
+      <div class="score-label">total points</div>
+      <div class="score-entries">1 entry</div>
+    </div>
+  </div>
+
+  <!-- CATEGORY BREAKDOWN -->
+  <div class="breakdown">
+    <h3>— CATEGORY BREAKDOWN —</h3>
+    <div class="category-row">
+      <span class="category-name">Joke ($5)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Prank ($5)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Legendary Story ($10)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 1</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Roast ($8)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Story ($7)</span>
+      <span class="cat-phaedra">P: 1</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Meme/Reel ($3)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+  </div>
+
+  <!-- LOG -->
+  <div class="log-section">
+    <h3>— THE RECEIPTS —</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Person</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>$</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Legendary Story</td>
+          <td>It was a button shirt</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Story</td>
+          <td>Podcast awesomeness</td>
+          <td>$3.50</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <footer>updated manually · disputed entries taken very seriously</footer>
+
+</body>
+</html>
