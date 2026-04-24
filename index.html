@@ -223,4 +223,239 @@
       transition: opacity 0.2s;
     }
 
-    .btn:hover { opacity: 0
+    .btn:hover { opacity: 0.8; }
+
+    .pw-error {
+      color: #e74c3c;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .dice-roller {
+      display: none;
+      background: #1a1a1a;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid #333;
+    }
+
+    .dice-roller p {
+      color: #888;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .dice-display {
+      font-size: 6rem;
+      line-height: 1;
+      margin: 1rem 0;
+    }
+
+    .dice-result {
+      font-size: 1.5rem;
+      color: var(--gold);
+      font-weight: bold;
+      margin: 0.5rem 0 1.5rem;
+      min-height: 2rem;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    .spinning { animation: spin 0.5s ease-out; }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      color: #333;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🏆 PLOT TWIST TALLY 🏆</h1>
+    <p>The official record of chaos. Updated manually. Contested frequently.</p>
+  </header>
+
+  <div class="leader-banner leader-mike">
+    👑 CURRENT LEADER: MIKE — winning by $14.50
+  </div>
+
+  <div class="scores">
+    <div class="scorecard scorecard-phaedra">
+      <h2>Phaedra</h2>
+      <div class="score-value">$15.50</div>
+      <div class="score-label">total points</div>
+      <div class="score-entries">2 entries</div>
+    </div>
+    <div class="scorecard scorecard-mike">
+      <h2>Mike</h2>
+      <div class="score-value">$30</div>
+      <div class="score-label">total points</div>
+      <div class="score-entries">3 entries</div>
+    </div>
+  </div>
+
+  <div class="breakdown">
+    <h3>— CATEGORY BREAKDOWN —</h3>
+    <div class="category-row">
+      <span class="category-name">Joke ($5)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Prank ($5)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 2</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Legendary Story ($10)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 1</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Roast ($8)</span>
+      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Story ($7)</span>
+      <span class="cat-phaedra">P: 1</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+    <div class="category-row">
+      <span class="category-name">Meme/Reel ($3)</span>
+      <span class="cat-phaedra">P: 1</span>
+      <span class="cat-mike">M: 0</span>
+    </div>
+  </div>
+
+  <div class="log-section">
+    <h3>— THE RECEIPTS —</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Date</th>
+          <th>Person</th>
+          <th>Category</th>
+          <th>Description</th>
+          <th>$</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Legendary Story</td>
+          <td>It was a button shirt</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Story</td>
+          <td>Podcast awesomeness</td>
+          <td>$3.50</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Prank (custom)</td>
+          <td>Owl Prank — end of meeting ambush</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Prank (custom)</td>
+          <td>SL — typed sl into the Linux terminal like a menace</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Meme/Reel (custom)</td>
+          <td>Post SL meme count</td>
+          <td>$12</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="dice-section">
+    <h3>— D10 DISPUTE RESOLVER 🎲 —</h3>
+
+    <div class="dice-lock" id="diceLock">
+      <p>Collaborators only. Enter the password to roll.</p>
+      <input type="password" class="pw-input" id="pwInput" placeholder="password" />
+      <button class="btn" id="unlockBtn">Unlock</button>
+      <p class="pw-error" id="pwError">Wrong password. No dice for you. 🎲</p>
+    </div>
+
+    <div class="dice-roller" id="diceRoller">
+      <p>Roll to settle an unscored entry. Both parties must witness the roll.</p>
+      <div class="dice-display" id="diceDisplay">🎲</div>
+      <div class="dice-result" id="diceResult"></div>
+      <button class="btn" id="rollBtn">Roll D10</button>
+    </div>
+  </div>
+
+  <footer>updated manually · disputed entries taken very seriously</footer>
+
+  <script>
+    const PASSWORD = "plottwist2026";
+
+    document.addEventListener("DOMContentLoaded", function() {
+      document.getElementById("unlockBtn").addEventListener("click", checkPassword);
+      document.getElementById("rollBtn").addEventListener("click", rollDice);
+      document.getElementById("pwInput").addEventListener("keypress", function(e) {
+        if (e.key === "Enter") checkPassword();
+      });
+    });
+
+    function checkPassword() {
+      const input = document.getElementById("pwInput").value;
+      const error = document.getElementById("pwError");
+      if (input === PASSWORD) {
+        document.getElementById("diceLock").style.display = "none";
+        document.getElementById("diceRoller").style.display = "block";
+      } else {
+        error.style.display = "block";
+      }
+    }
+
+    function rollDice() {
+      const display = document.getElementById("diceDisplay");
+      const result = document.getElementById("diceResult");
+      let rolls = 0;
+      result.textContent = "";
+      display.classList.remove("spinning");
+      void display.offsetWidth;
+      display.classList.add("spinning");
+
+      const interval = setInterval(() => {
+        display.textContent = ["🎲","⚄","⚅","⚃","⚂","⚁","⚀"][Math.floor(Math.random() * 7)];
+        rolls++;
+        if (rolls >= 15) {
+          clearInterval(interval);
+          const final = Math.floor(Math.random() * 10) + 1;
+          display.textContent = "🎲";
+          result.textContent = `You rolled: ${final} — worth $${final}`;
+        }
+      }, 80);
+    }
+  </script>
+
+</body>
+</html>
