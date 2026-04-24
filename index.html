@@ -24,7 +24,6 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
     header {
       text-align: center;
       padding: 3rem 1rem 1rem;
@@ -43,7 +42,6 @@
       font-size: 0.95rem;
     }
 
-    /* LEADER BANNER */
     .leader-banner {
       max-width: 700px;
       margin: 2rem auto 1rem;
@@ -79,7 +77,6 @@
       50% { box-shadow: 0 0 25px rgba(255, 215, 0, 0.8); }
     }
 
-    /* SCORECARDS */
     .scores {
       display: flex;
       justify-content: center;
@@ -108,11 +105,7 @@
       border: 2px solid var(--purple);
     }
 
-    .scorecard h2 {
-      font-size: 1.3rem;
-      margin-bottom: 0.5rem;
-    }
-
+    .scorecard h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
     .scorecard-phaedra h2 { color: var(--pink); }
     .scorecard-mike h2 { color: var(--purple); }
 
@@ -126,18 +119,9 @@
     .scorecard-phaedra .score-value { color: var(--pink); }
     .scorecard-mike .score-value { color: var(--purple); }
 
-    .score-label {
-      color: #888;
-      font-size: 0.85rem;
-    }
+    .score-label { color: #888; font-size: 0.85rem; }
+    .score-entries { margin-top: 1rem; color: #aaa; font-size: 0.9rem; }
 
-    .score-entries {
-      margin-top: 1rem;
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    /* CATEGORY BREAKDOWN */
     .breakdown {
       max-width: 700px;
       margin: 2rem auto;
@@ -167,7 +151,6 @@
     .cat-phaedra { color: var(--pink); font-weight: bold; }
     .cat-mike { color: var(--purple); font-weight: bold; }
 
-    /* LOG TABLE */
     .log-section {
       max-width: 700px;
       margin: 2rem auto 4rem;
@@ -182,11 +165,7 @@
       letter-spacing: 1px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
+    table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
 
     th {
       background: #1a1a1a;
@@ -204,7 +183,6 @@
     }
 
     tr:hover td { background: #161616; }
-
     .person-phaedra { color: var(--pink); font-weight: bold; }
     .person-mike { color: var(--purple); font-weight: bold; }
 
@@ -223,28 +201,25 @@
     <p>The official record of chaos. Updated manually. Contested frequently.</p>
   </header>
 
-  <!-- LEADER BANNER -->
   <div class="leader-banner leader-mike">
-    👑 CURRENT LEADER: MIKE — winning by $6.50
+    👑 CURRENT LEADER: MIKE — winning by $14.50
   </div>
 
-  <!-- SCORECARDS -->
   <div class="scores">
     <div class="scorecard scorecard-phaedra">
       <h2>Phaedra</h2>
-      <div class="score-value">$3.50</div>
+      <div class="score-value">$15.50</div>
       <div class="score-label">total points</div>
-      <div class="score-entries">1 entry</div>
+      <div class="score-entries">2 entries</div>
     </div>
     <div class="scorecard scorecard-mike">
       <h2>Mike</h2>
-      <div class="score-value">$10</div>
+      <div class="score-value">$30</div>
       <div class="score-label">total points</div>
-      <div class="score-entries">1 entry</div>
+      <div class="score-entries">3 entries</div>
     </div>
   </div>
 
-  <!-- CATEGORY BREAKDOWN -->
   <div class="breakdown">
     <h3>— CATEGORY BREAKDOWN —</h3>
     <div class="category-row">
@@ -255,7 +230,7 @@
     <div class="category-row">
       <span class="category-name">Prank ($5)</span>
       <span class="cat-phaedra">P: 0</span>
-      <span class="cat-mike">M: 0</span>
+      <span class="cat-mike">M: 2</span>
     </div>
     <div class="category-row">
       <span class="category-name">Legendary Story ($10)</span>
@@ -274,12 +249,11 @@
     </div>
     <div class="category-row">
       <span class="category-name">Meme/Reel ($3)</span>
-      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-phaedra">P: 1</span>
       <span class="cat-mike">M: 0</span>
     </div>
   </div>
 
-  <!-- LOG -->
   <div class="log-section">
     <h3>— THE RECEIPTS —</h3>
     <table>
@@ -309,6 +283,30 @@
           <td>Story</td>
           <td>Podcast awesomeness</td>
           <td>$3.50</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Prank (custom)</td>
+          <td>Owl Prank — end of meeting ambush</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>2026</td>
+          <td class="person-mike">Mike</td>
+          <td>Prank (custom)</td>
+          <td>SL — typed sl into the Linux terminal like a menace</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Meme/Reel (custom)</td>
+          <td>Post SL meme count</td>
+          <td>$12</td>
         </tr>
       </tbody>
     </table>
