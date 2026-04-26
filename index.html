@@ -336,19 +336,19 @@
       font-size: 1.5rem;
       font-weight: bold;
       border-radius: 8px;
-      opacity: 0.9;
+      opacity: 1;
     }
 
     .cube-d10 .cube-face {
-      background: rgba(123, 79, 212, 0.3);
+      background: rgba(123, 79, 212, 0.75);
       border-color: var(--arcane-glow);
-      color: var(--arcane-glow);
+      color: #fff;
     }
 
     .cube-d20 .cube-face {
-      background: rgba(232, 93, 4, 0.3);
+      background: rgba(232, 93, 4, 0.75);
       border-color: var(--ember-glow);
-      color: var(--ember-glow);
+      color: #fff;
     }
 
     .face-front  { transform: rotateY(0deg) translateZ(40px); }
@@ -418,15 +418,15 @@
   </header>
 
   <div class="leader-banner leader-mike">
-    👑 CURRENT LEADER: MIKE — winning by $14.50
+    👑 CURRENT LEADER: MIKE — winning by $13.50
   </div>
 
   <div class="scores">
     <div class="scorecard scorecard-phaedra">
       <h2>Phaedra</h2>
-      <div class="score-value">$15.50</div>
+      <div class="score-value">$16.50</div>
       <div class="score-label">total points</div>
-      <div class="score-entries">2 entries</div>
+      <div class="score-entries">3 entries</div>
     </div>
     <div class="scorecard scorecard-mike">
       <h2>Mike</h2>
@@ -465,7 +465,7 @@
     </div>
     <div class="category-row">
       <span class="category-name">Meme/Reel</span>
-      <span class="cat-phaedra">P: 1</span>
+      <span class="cat-phaedra">P: 2</span>
       <span class="cat-mike">M: 0</span>
     </div>
   </div>
@@ -523,6 +523,14 @@
           <td>Meme/Reel (custom)</td>
           <td>Post SL meme count</td>
           <td>$12</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Meme/Reel (D10)</td>
+          <td>Making dice GIFs for the tally — rolled a 1 💀</td>
+          <td>$1</td>
         </tr>
       </tbody>
     </table>
@@ -613,7 +621,6 @@
 
     document.addEventListener("DOMContentLoaded", function() {
 
-      // D10 unlock
       document.getElementById("unlockD10").addEventListener("click", function() {
         if (document.getElementById("pwD10").value === PW_D10) {
           document.getElementById("lockD10").style.display = "none";
@@ -627,7 +634,6 @@
         if (e.key === "Enter") document.getElementById("unlockD10").click();
       });
 
-      // D20 unlock
       document.getElementById("unlockD20").addEventListener("click", function() {
         if (document.getElementById("pwD20").value === PW_D20) {
           document.getElementById("lockD20").style.display = "none";
@@ -641,7 +647,6 @@
         if (e.key === "Enter") document.getElementById("unlockD20").click();
       });
 
-      // D10 roll
       document.getElementById("rollD10btn").addEventListener("click", function() {
         const final = Math.floor(Math.random() * 10) + 1;
         spinCube("cubeD10", function() {
@@ -654,7 +659,6 @@
         });
       });
 
-      // D20 roll
       document.getElementById("rollD20btn").addEventListener("click", function() {
         const final = Math.floor(Math.random() * 20) + 1;
         spinCube("cubeD20", function() {
