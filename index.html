@@ -170,7 +170,6 @@
     .person-phaedra { color: var(--pink); font-weight: bold; }
     .person-mike { color: var(--purple); font-weight: bold; }
 
-    /* DICE SECTION */
     .dice-section {
       max-width: 700px;
       margin: 2rem auto 4rem;
@@ -296,7 +295,6 @@
 
     .dice-roller-inner { display: none; }
 
-    /* 3D CUBE */
     .cube-wrap {
       width: 80px;
       height: 80px;
@@ -310,7 +308,6 @@
       position: relative;
       transform-style: preserve-3d;
       transform: translateZ(-40px);
-      transition: transform 0.5s;
     }
 
     .cube.rolling {
@@ -336,7 +333,6 @@
       font-size: 1.5rem;
       font-weight: bold;
       border-radius: 8px;
-      opacity: 1;
     }
 
     .cube-d10 .cube-face {
@@ -374,7 +370,6 @@
       margin-top: 0.5rem;
     }
 
-    /* GIF POPUP */
     .gif-popup {
       display: none;
       position: fixed;
@@ -418,15 +413,15 @@
   </header>
 
   <div class="leader-banner leader-mike">
-    👑 CURRENT LEADER: MIKE — winning by $13.50
+    👑 CURRENT LEADER: MIKE — winning by $5.50
   </div>
 
   <div class="scores">
     <div class="scorecard scorecard-phaedra">
       <h2>Phaedra</h2>
-      <div class="score-value">$16.50</div>
+      <div class="score-value">$24.50</div>
       <div class="score-label">total points</div>
-      <div class="score-entries">3 entries</div>
+      <div class="score-entries">4 entries</div>
     </div>
     <div class="scorecard scorecard-mike">
       <h2>Mike</h2>
@@ -440,7 +435,7 @@
     <h3>— CATEGORY BREAKDOWN —</h3>
     <div class="category-row">
       <span class="category-name">Joke</span>
-      <span class="cat-phaedra">P: 0</span>
+      <span class="cat-phaedra">P: 1</span>
       <span class="cat-mike">M: 0</span>
     </div>
     <div class="category-row">
@@ -532,16 +527,22 @@
           <td>Making dice GIFs for the tally — rolled a 1 💀</td>
           <td>$1</td>
         </tr>
+        <tr>
+          <td>7</td>
+          <td>2026</td>
+          <td class="person-phaedra">Phaedra</td>
+          <td>Joke (D10)</td>
+          <td>One hundred forty one thousand floppy disks</td>
+          <td>$8</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- DICE SECTION -->
   <div class="dice-section">
     <h3>— 🎲 —</h3>
     <div class="dice-columns">
 
-      <!-- D10 -->
       <div class="dice-box dice-box-d10">
         <h4>🔮 THE DECIDER</h4>
         <div class="dice-subtitle">D10 · Standard Chaos</div>
@@ -554,12 +555,12 @@
         <div class="dice-roller-inner" id="rollerD10">
           <div class="cube-wrap">
             <div class="cube cube-d10" id="cubeD10">
-              <div class="cube-face face-front">1</div>
-              <div class="cube-face face-back">2</div>
-              <div class="cube-face face-right">3</div>
-              <div class="cube-face face-left">4</div>
-              <div class="cube-face face-top">5</div>
-              <div class="cube-face face-bottom">6</div>
+              <div class="cube-face face-front" id="d10Front">?</div>
+              <div class="cube-face face-back">?</div>
+              <div class="cube-face face-right">?</div>
+              <div class="cube-face face-left">?</div>
+              <div class="cube-face face-top">?</div>
+              <div class="cube-face face-bottom">?</div>
             </div>
           </div>
           <div class="dice-result dice-result-d10" id="resultD10"></div>
@@ -568,7 +569,6 @@
         </div>
       </div>
 
-      <!-- D20 -->
       <div class="dice-box dice-box-d20">
         <h4>🔥 THE RECKONING</h4>
         <div class="dice-subtitle">D20 · Legendary Chaos</div>
@@ -581,12 +581,12 @@
         <div class="dice-roller-inner" id="rollerD20">
           <div class="cube-wrap">
             <div class="cube cube-d20" id="cubeD20">
-              <div class="cube-face face-front">1</div>
-              <div class="cube-face face-back">5</div>
-              <div class="cube-face face-right">10</div>
-              <div class="cube-face face-left">15</div>
-              <div class="cube-face face-top">20</div>
-              <div class="cube-face face-bottom">3</div>
+              <div class="cube-face face-front" id="d20Front">?</div>
+              <div class="cube-face face-back">?</div>
+              <div class="cube-face face-right">?</div>
+              <div class="cube-face face-left">?</div>
+              <div class="cube-face face-top">?</div>
+              <div class="cube-face face-bottom">?</div>
             </div>
           </div>
           <div class="dice-result dice-result-d20" id="resultD20"></div>
@@ -598,7 +598,6 @@
     </div>
   </div>
 
-  <!-- GIF POPUP -->
   <div class="gif-popup" id="gifPopup" onclick="closePopup()">
     <img id="gifImg" src="" alt="reaction" />
     <p>click anywhere to close</p>
@@ -611,12 +610,12 @@
     const PW_D20 = "plottwist2026";
 
     const GIFS = {
-      d10_fail:    "F.gif",
-      d10_win:     "10W.gif",
-      d20_fail1:   "CF.gif",
-      d20_fail2:   "https://comb.io/ejlQfr.gif",
-      d20_nat1:    "https://media1.tenor.com/m/qCEi-bhE-G8AAAAd/baldur%27s-gate-3-funny.gif",
-      d20_nat2:    "https://media1.tenor.com/m/C7siMFE1hDIAAAAd/nat-20-lets-fucking-go-tom-cardy.gif"
+      d10_fail:  "F.gif",
+      d10_win:   "10W.gif",
+      d20_fail1: "CF.gif",
+      d20_fail2: "https://comb.io/ejlQfr.gif",
+      d20_nat1:  "https://media1.tenor.com/m/qCEi-bhE-G8AAAAd/baldur%27s-gate-3-funny.gif",
+      d20_nat2:  "https://media1.tenor.com/m/C7siMFE1hDIAAAAd/nat-20-lets-fucking-go-tom-cardy.gif"
     };
 
     document.addEventListener("DOMContentLoaded", function() {
@@ -649,40 +648,38 @@
 
       document.getElementById("rollD10btn").addEventListener("click", function() {
         const final = Math.floor(Math.random() * 10) + 1;
-        spinCube("cubeD10", function() {
+        spinCube("cubeD10", "d10Front", final, function() {
           document.getElementById("resultD10").textContent = "You rolled: " + final + " — worth $" + final;
-          if (final === 1) {
-            showGif(GIFS.d10_fail);
-          } else if (final === 10) {
-            showGif(GIFS.d10_win);
-          }
+          if (final === 1) showGif(GIFS.d10_fail);
+          else if (final === 10) showGif(GIFS.d10_win);
         });
       });
 
       document.getElementById("rollD20btn").addEventListener("click", function() {
         const final = Math.floor(Math.random() * 20) + 1;
-        spinCube("cubeD20", function() {
+        spinCube("cubeD20", "d20Front", final, function() {
           document.getElementById("resultD20").textContent = "You rolled: " + final + " — worth $" + final;
           if (final === 1) {
-            showGif(GIFS.d20_fail1, function() {
-              showGif(GIFS.d20_fail2);
-            });
+            showGif(GIFS.d20_fail1, function() { showGif(GIFS.d20_fail2); });
           } else if (final === 20) {
-            showGif(GIFS.d20_nat1, function() {
-              showGif(GIFS.d20_nat2);
-            });
+            showGif(GIFS.d20_nat1, function() { showGif(GIFS.d20_nat2); });
           }
         });
       });
 
     });
 
-    function spinCube(cubeId, callback) {
+    function spinCube(cubeId, frontId, result, callback) {
       const cube = document.getElementById(cubeId);
+      const front = document.getElementById(frontId);
+      front.textContent = "?";
       cube.classList.remove("rolling");
       void cube.offsetWidth;
       cube.classList.add("rolling");
-      setTimeout(callback, 1000);
+      setTimeout(function() {
+        front.textContent = result;
+        callback();
+      }, 1000);
     }
 
     let nextGifCallback = null;
